@@ -91,7 +91,8 @@ def main() -> None:
         sys.exit(2)
     else:
         # warn (default): inject as system message so Claude sees it too
-        print(json.dumps({"systemMessage": f"[Account Guard] {policy.reason} Expected: {allowed_str}."}))
+        payload = {"systemMessage": f"[Account Guard] {policy.reason} Expected: {allowed_str}."}
+        print(json.dumps(payload))
         sys.exit(0)
 
 
