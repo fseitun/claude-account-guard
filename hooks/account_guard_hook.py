@@ -75,9 +75,7 @@ def main() -> None:
         sys.exit(0)
 
     folder_hint = (
-        f" (matched rule: {resolved.matched_folder_key})"
-        if resolved.matched_folder_key
-        else ""
+        f" (matched rule: {resolved.matched_folder_key})" if resolved.matched_folder_key else ""
     )
     allowed_str = ", ".join(resolved.allowed_emails)
     message = (
