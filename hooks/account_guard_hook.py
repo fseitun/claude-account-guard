@@ -75,9 +75,7 @@ def main() -> None:
         sys.exit(0)
 
     folder_hint = (
-        f" (matched rule: {resolved.matched_folder_key})"
-        if resolved.matched_folder_key
-        else ""
+        f" (matched rule: {resolved.matched_folder_key})" if resolved.matched_folder_key else ""
     )
     allowed_str = ", ".join(resolved.allowed_emails)
     message = (
@@ -91,7 +89,8 @@ def main() -> None:
         sys.exit(2)
     else:
         # warn (default): inject as system message so Claude sees it too
-        print(json.dumps({"systemMessage": f"[Account Guard] {policy.reason} Expected: {allowed_str}."}))
+        payload = {"systemMessage": f"[Account Guard] {policy.reason} Expected: {allowed_str}."}
+        print(json.dumps(payload))
         sys.exit(0)
 
 
