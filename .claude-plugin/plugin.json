@@ -1,0 +1,8 @@
+{
+  "name": "claude-account-guard",
+  "version": "1.0.0",
+  "description": "Warns or blocks prompts when the active Claude account does not match the expected account for the current directory",
+  "author": {
+    "name": "Fico Seitún"
+  }
+}
