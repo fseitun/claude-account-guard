@@ -4,7 +4,7 @@
 
 ## Overview
 
-claude-account-guard is a Claude Code plugin that enforces account policies locally on your machine. It does not collect, transmit, or store any personal data.
+account-guard is a Claude Code plugin that enforces account policies locally on your machine. It does not collect, transmit, or store any personal data.
 
 ## Data Processed
 
@@ -25,4 +25,4 @@ This plugin does not integrate with any third-party services, analytics platform
 
 ## Contact
 
-For questions or concerns, open an issue at https://github.com/fseitun/claude-account-guard/issues.
+For questions or concerns, open an issue at https://github.com/fseitun/account-guard/issues.

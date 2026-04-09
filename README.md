@@ -1,4 +1,4 @@
-# claude-account-guard
+# account-guard
 
 A Claude Code plugin that warns or blocks prompts when the active Claude account doesn't match the expected account for the current directory.
 
@@ -7,7 +7,8 @@ Useful for teams or individuals who switch between work and personal Claude acco
 ## Installation
 
 ```
-/plugin install https://github.com/fseitun/claude-account-guard
+/plugin marketplace add fseitun/account-guard
+/plugin install account-guard@fseitun
 ```
 
 ## Configuration
