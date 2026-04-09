@@ -57,9 +57,8 @@ def main() -> None:
         # Plugin not configured — stay silent.
         sys.exit(0)
 
-    on_mismatch = (
-        os.environ.get("CLAUDE_PLUGIN_OPTION_ON_MISMATCH")
-        or config.get("onMismatch", "warn")
+    on_mismatch = os.environ.get("CLAUDE_PLUGIN_OPTION_ON_MISMATCH") or config.get(
+        "onMismatch", "warn"
     )
     expected_by_folder = config.get("expectedByFolder")
     global_allowed = config.get("allowedEmails")
