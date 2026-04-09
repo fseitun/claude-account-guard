@@ -34,12 +34,11 @@ def _read_auth_email() -> str | None:
 
 
 def _read_account_guard_config() -> dict | None:
-    """Read accountGuard section from ~/.claude/settings.json, or None if absent/unreadable."""
-    settings_path = os.path.expanduser("~/.claude/settings.json")
+    """Read config from ~/.claude/account-guard.json, or None if absent/unreadable."""
+    config_path = os.path.expanduser("~/.claude/account-guard.json")
     try:
-        with open(settings_path) as f:
-            settings = json.load(f)
-        config = settings.get("accountGuard")
+        with open(config_path) as f:
+            config = json.load(f)
         return config if isinstance(config, dict) else None
     except Exception:
         return None
@@ -58,7 +57,10 @@ def main() -> None:
         # Plugin not configured — stay silent.
         sys.exit(0)
 
-    on_mismatch = config.get("onMismatch", "warn")
+    on_mismatch = (
+        os.environ.get("CLAUDE_PLUGIN_OPTION_ON_MISMATCH")
+        or config.get("onMismatch", "warn")
+    )
     expected_by_folder = config.get("expectedByFolder")
     global_allowed = config.get("allowedEmails")
 
@@ -81,7 +83,7 @@ def main() -> None:
     message = (
         f"Account Guard{folder_hint}: {policy.reason} "
         f"Expected: {allowed_str}. "
-        f"Switch accounts or update ~/.claude/settings.json."
+        f"Switch accounts or update ~/.claude/account-guard.json."
     )
 
     if on_mismatch == "block":

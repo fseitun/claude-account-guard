@@ -13,7 +13,7 @@ Show the active Claude account and whether it satisfies the account-guard policy
 
 1. Run `claude auth status` and display the result in a readable format (email, org, subscription type, auth method).
 
-2. Read `~/.claude/settings.json` and extract `accountGuard.expectedByFolder` (and `accountGuard.allowedEmails` if present).
+2. Read `~/.claude/account-guard.json` and extract `expectedByFolder` (and `allowedEmails` if present).
 
 3. If $ARGUMENTS is provided, use that as the path to evaluate; otherwise use the current working directory.
 

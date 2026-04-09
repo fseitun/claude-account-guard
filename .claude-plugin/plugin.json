@@ -5,5 +5,11 @@
   "author": {
     "name": "Federico Seitun"
   },
-  "icon": "../icon.png"
+  "icon": "../icon.png",
+  "userConfig": {
+    "on_mismatch": {
+      "description": "What to do when the account doesn't match: warn (inject a warning) or block (reject the prompt)",
+      "sensitive": false
+    }
+  }
 }

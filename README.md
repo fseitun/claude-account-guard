@@ -7,35 +7,28 @@ Useful for teams or individuals who switch between work and personal Claude acco
 ## Installation
 
 ```
-/plugin marketplace add fseitun/account-guard
+/plugin marketplace add fseitun/claude-account-guard
 /plugin install account-guard@fseitun
 ```
 
 ## Configuration
 
-Add an `accountGuard` section to `~/.claude/settings.json`:
+**`onMismatch`** is set at install time when prompted, or via `/plugin config`. Options: `warn` (default) or `block`.
+
+**Folder policy** is configured in `~/.claude/account-guard.json`:
 
 ```json
 {
-  "accountGuard": {
-    "onMismatch": "warn",
-    "expectedByFolder": {
-      "~/work/acme":    { "allowedEmails": ["you@acme.com"] },
-      "~/personal":     { "allowedEmails": ["you@gmail.com"] }
-    }
+  "expectedByFolder": {
+    "~/work/acme":    { "allowedEmails": ["you@acme.com"] },
+    "~/personal":     { "allowedEmails": ["you@gmail.com"] }
   }
 }
 ```
 
-### Options
-
-**`onMismatch`** — what to do when the active account isn't in the allowed list:
-- `"warn"` (default) — injects a warning into Claude's context before the prompt is processed; you can still continue
-- `"block"` — blocks the prompt entirely with an error message
-
 **`expectedByFolder`** — map of directory prefixes to allowed email lists. The longest matching prefix wins. Paths support `~`.
 
-**`allowedEmails`** (optional, top-level) — a global allowed list that overrides `expectedByFolder` everywhere.
+**`allowedEmails`** (optional, top-level) — a global allowed list that applies everywhere regardless of directory.
 
 ## Commands
 
@@ -49,7 +42,7 @@ On every `UserPromptSubmit`, the hook:
 3. Runs `claude auth status` to get the active email
 4. Warns or blocks if the email isn't in the matched rule's allowed list
 
-If no `accountGuard` config is present, or no rule matches the current directory, the hook is silent.
+If no config is present, or no rule matches the current directory, the hook is silent.
 
 ## Development
 
