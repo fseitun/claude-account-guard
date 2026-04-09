@@ -7,7 +7,7 @@ Useful for teams or individuals who switch between work and personal Claude acco
 ## Installation
 
 ```
-/plugin install https://github.com/YOUR_ORG/claude-account-guard
+/plugin install https://github.com/fseitun/claude-account-guard
 ```
 
 ## Configuration
