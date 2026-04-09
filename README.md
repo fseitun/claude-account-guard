@@ -13,7 +13,7 @@ Useful for teams or individuals who switch between work and personal Claude acco
 
 ## Configuration
 
-**`onMismatch`** is set at install time when prompted, or via `/plugin config`. Options: `warn` (default) or `block`.
+**`on_mismatch`** — set at install time when prompted, or via `/plugin config`. Options: `warn` (default) or `block`. You can also set `onMismatch` directly in `~/.claude/account-guard.json` (camelCase) if you prefer manual config.
 
 **Folder policy** is configured in `~/.claude/account-guard.json`:
 
