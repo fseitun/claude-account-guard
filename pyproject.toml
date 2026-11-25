@@ -7,3 +7,4 @@ select = ["E", "F", "I"]  # pycodestyle errors, pyflakes, isort
 
 [tool.ruff.lint.per-file-ignores]
 "hooks/*" = ["E402"]  # sys.path manipulation before local imports is intentional
+"tests/test_hook.py" = ["E402"]  # imports the hook script via sys.path
