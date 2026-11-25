@@ -1,11 +1,11 @@
 {
   "name": "account-guard",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Warns or blocks prompts when the active Claude account does not match the expected account for the current directory",
   "author": {
     "name": "Federico Seitun"
   },
-  "icon": "../icon.png",
+  "icon": "./icon.png",
   "userConfig": {
     "on_mismatch": {
       "title": "On Mismatch",

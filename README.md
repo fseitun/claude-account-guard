@@ -42,6 +42,10 @@ On every `UserPromptSubmit`, the hook:
 3. Runs `claude auth status` to get the active email
 4. Warns or blocks if the email isn't in the matched rule's allowed list
 
+A warning is shown to you and also added to Claude's context, so Claude knows the account is wrong.
+
+If the hook can't tell which account is active (for example `claude` isn't on the hooks' `PATH`, or `claude auth status` times out), it warns that it couldn't check and lets the prompt through, even in `block` mode. Being logged out counts as a mismatch.
+
 If no config is present, or no rule matches the current directory, the hook is silent.
 
 ## Development
